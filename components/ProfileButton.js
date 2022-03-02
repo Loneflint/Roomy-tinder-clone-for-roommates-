@@ -12,12 +12,12 @@ const ProfileButton = () => {
         }}
       >
         <Image
-          source={require("../assets/placeholder.png")}
+          source={require("../assets/placeholderc.png")}
           style={{
             width: 40,
             height: 40,
             borderRadius: 40 / 2,
-            marginLeft: 15,
+            marginLeft: -70,
           }}
         />
       </TouchableOpacity>

@@ -12,12 +12,12 @@ const SettingsButton = () => {
         }}
       >
         <Image
-          source={require("../assets/placeholder.png")}
+          source={require("../assets/Settingsc.png")}
           style={{
-            width: 40,
-            height: 40,
+            width: 65,
+            height: 60,
             borderRadius: 40 / 2,
-            marginLeft: 15,
+            marginLeft: 0,
           }}
         />
       </TouchableOpacity>

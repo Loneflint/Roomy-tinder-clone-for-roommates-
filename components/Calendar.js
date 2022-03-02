@@ -4,21 +4,19 @@ import { View, Text, StyleSheet, ScrollView, Button, Alert } from "react-native"
 
 const Profile = () => {
     return (
-      <View style={styles.Feed}>
-        <Text>Profile Page</Text>
-      </View>
+      <ScrollView style={styles.Calendar}>
+        <Text>Calendar Page</Text>
+      </ScrollView>
     );
   };
   
   const styles = StyleSheet.create({
-    Feed: {
-      flex: 1,
-      marginTop: 25,
+    Calendar: {
       marginLeft: 20,
       marginRight: 20,
       height: 500,
-      textAlign: 'center',
-      backgroundColor: "#0FEFD1",
+      textAlign: "center",
+      backgroundColor: "pink",
       borderRadius: 10,
     },
   });
