@@ -13,33 +13,35 @@ import {
 } from "react-native";
 
 const Feed = () => {
-
   const [bottomActions, setBottomActions] = React.useState(null);
   const scrolly = React.useRef(new Animated.Value(0)).current;
-  
+
   const topEdge = bottomActions?.y - height + bottomActions?.height;
   return (
     <View>
-    <Animated.ScrollView
-      style={styles.Feed}
-      onScroll={Animated.event(
-        [{ nativeEvent: { contentOffset: { y: scrolly } } }],
-        { useNativeDriver: true }
-      )}
-    >
-      
-    
-      <View  style={{
-                  width: 400,
-                  height: 80,
-                }} 
+      <Animated.ScrollView
+        style={styles.Feed}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrolly } } }],
+          { useNativeDriver: true }
+        )}
+      >
+        <View>
+{/* flatlist */}
+
+        </View>
+
+        <View
+          style={{
+            width: 400,
+            height: 80,
+          }}
           onLayout={(ev) => {
             setBottomActions(ev.nativeEvent.layout);
-          }}>
-            
-          </View>
-    </Animated.ScrollView>
-    {bottomActions && (
+          }}
+        ></View>
+      </Animated.ScrollView>
+      {bottomActions && (
         <Animated.View
           style={[
             styles.bottomActions,
@@ -51,35 +53,46 @@ const Feed = () => {
               bottom: 0,
               right: 0,
               left: 0,
-              
             },
           ]}
         >
-          <TouchableOpacity onPress={() => {}}>
-              <Image
-                source={require("../assets/Dislike.png")}
-                style={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: 40 / 2,
-                  marginLeft: 0,
-                }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => {}}>
-              <Image
-                source={require("../assets/Like.png")}
-                style={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: 40 / 2,
-                  marginLeft: 150,
-                }}
-              />
-            </TouchableOpacity>
-
+          <TouchableOpacity
+            style={{
+              width: 80,
+              height: 80,
+            }}
+            onPress={() => {}}
+          >
+            <Image
+              source={require("../assets/Dislike.png")}
+              style={{
+                width: 80,
+                height: 80,
+                borderRadius: 40 / 2,
+                marginLeft: 0,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: 80,
+              height: 80,
+              marginLeft: 150,
+            }}
+            onPress={() => {}}
+          >
+            <Image
+              source={require("../assets/Like.png")}
+              style={{
+                width: 80,
+                height: 80,
+                borderRadius: 40 / 2,
+                
+              }}
+            />
+          </TouchableOpacity>
         </Animated.View>
-     )} 
+      )}
     </View>
   );
 };

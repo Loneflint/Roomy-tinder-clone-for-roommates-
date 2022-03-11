@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Chat from "./Chat"
 import Calendar from "./Calendar"
 import Home from "./Home"
+import Post from "./Post"
 
 
 const Tab = createBottomTabNavigator();
@@ -13,19 +14,7 @@ const Tab = createBottomTabNavigator();
 const BottomNav = (Stack) => {
   return (
     <Tab.Navigator initialRouteName={"Home"} screenOptions={{ headerShown: false, tabBarShowLabel: false}}>
-      <Tab.Screen name="Chat" component={Chat} 
-      options={{tabBarIcon: ({}) => (
-          <Image
-          source={require("../assets/Chatc.png")}
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: 40 / 2,
-            marginLeft: 0,
-          }}
-        />
-        )
-      }}/>
+      
       <Tab.Screen name="Home" component={Home}
        options={{tabBarIcon: ({}) => (
         <Image
@@ -39,6 +28,19 @@ const BottomNav = (Stack) => {
       />
       )
     }} />
+    <Tab.Screen name="Post" component={Post} 
+      options={{tabBarIcon: ({}) => (
+          <Image
+          source={require("../assets/Postc.png")}
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 40 / 2,
+            marginLeft: 0,
+          }}
+        />
+        )
+      }}/>
       <Tab.Screen name="Calendar" component={Calendar}
        options={{tabBarIcon: ({}) => (
         <Image

@@ -1,9 +1,9 @@
 import express from 'express';
-import { postListing } from '../controler/listing.js'
+import { postUserLogin } from '../controler/userLogin.js'
 
 const router = express.Router()
 
-router.post('/post', postListing)
+router.post('/post', postUserLogin)
 // router.get('/get', getUser)
 
 export default router;

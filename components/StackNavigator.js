@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
@@ -14,17 +14,21 @@ import ForgotPassword from "./accountPages/ForgotPassword";
 import ResetPassword from "./accountPages/ResetPassword";
 import VerifyCode from "./accountPages/VerifyCode";
 import ResetSuccess from "./accountPages/ResetSuccess";
+import AuthContext from "./AuthContext";
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-    const user = false;
-  
+    const user = false
+    // const {auth, setAuth} = useContext(AuthContext)
     return (
       <>
         <Stack.Navigator>
+         
           {user ? (
             <>
+            
             <Stack.Screen
             name="BottomNav"
             component={BottomNav}

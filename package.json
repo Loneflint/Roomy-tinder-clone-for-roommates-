@@ -15,13 +15,20 @@
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
     "expo-linear-gradient": "^11.0.2",
+    "jsonwebtoken": "^8.5.1",
     "react": "17.0.2",
     "react-hook-form": "^7.27.1",
     "react-native": "0.67.2",
+    "react-native-document-picker": "^8.0.0",
+    "react-native-image-base64": "^0.1.4",
+    "react-native-image-picker": "^4.7.3",
+    "react-native-progress": "^5.0.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.11.0",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

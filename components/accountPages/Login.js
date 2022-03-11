@@ -12,30 +12,39 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
+import {postUserLogin} from '../../axios/axios.js'
+
 
 const Login = ({ value, setValue, placeholder }) => {
   const navigation = useNavigation();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onloginPressed = (data) => {
-    console.warn("hello");
-    console.warn({ data });
-  };
+  const VerifyEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const onLoginPressed = (data) => {
+    // console.log()
+    postUserLogin({data})
+
+  };
+  const onSignUpPressed = () => {
+    navigation.navigate("Signup");
+  }
   return (
     <View style={styles.Login}>
       <Text style={styles.Header}>Login Page</Text>
       <View style={styles.Lcontainer}>
         <Controller
           rules={{
-            required: "Username Required",
+            required: "Email Required",
+            pattern: { value: VerifyEmail, message: "Invalid Email" },
           }}
           control={control}
-          name="username"
+          name="email"
           render={({
             field: { value, onChange, onBlur },
             fieldState: { error },
@@ -48,7 +57,7 @@ const Login = ({ value, setValue, placeholder }) => {
                   styles.Input,
                   { borderColor: error ? "red" : "#e8e8e8" },
                 ]}
-                placeholder="username"
+                placeholder="Email"
               />
               {error && (
                 <Text style={{ color: "red", alignSelf: "stretch" }}>
@@ -68,7 +77,7 @@ const Login = ({ value, setValue, placeholder }) => {
             },
           }}
           control={control}
-          name="Password"
+          name="password"
           render={({
             field: { value, onChange, onBlur },
             fieldState: { error },
@@ -92,23 +101,22 @@ const Login = ({ value, setValue, placeholder }) => {
             </>
           )}
         />
-        <TouchableOpacity onPress={handleSubmit(onloginPressed)}>
+        <TouchableOpacity onPress={handleSubmit(onLoginPressed)}>
           <Text style={styles.Input}>Login</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity
+
+        {/* implement later */}
+
+        {/* <TouchableOpacity
           onPress={() => {
             navigation.navigate("ForgotPassword");
           }}
         >
           <Text style={styles.Input}>forgot password</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Signup");
-          }}
-        >
+        <TouchableOpacity onPress={onSignUpPressed}>
           <Text style={styles.Input}>Sign Up</Text>
         </TouchableOpacity>
       </View>
