@@ -29,7 +29,7 @@ const Login = ({ value, setValue, placeholder }) => {
   const onLoginPressed = (data) => {
     // console.log()
     postUserLogin({data})
-
+    navigation.navigate("BottomNav");
   };
   const onSignUpPressed = () => {
     navigation.navigate("Signup");

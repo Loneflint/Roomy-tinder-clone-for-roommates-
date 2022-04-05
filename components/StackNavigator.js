@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Settings from "./Settings.js";
 import ProfileButton from "./ProfileButton.js";
 import SettingsButton from "./SettingsButton.js";
@@ -16,50 +16,69 @@ import VerifyCode from "./accountPages/VerifyCode";
 import ResetSuccess from "./accountPages/ResetSuccess";
 import AuthContext from "./AuthContext";
 
-
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-    const user = false
-    // const {auth, setAuth} = useContext(AuthContext)
-    return (
-      <>
-        <Stack.Navigator>
-         
-          {user ? (
-            <>
-            
-            <Stack.Screen
+  // const {auth, setAuth} = useContext(AuthContext)
+  return (
+    <>
+      <Stack.Navigator>
+        <>
+        <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Signup"
+            component={Signup}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="VerifyEmail"
+            component={VerifyEmail}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ForgotPassword"
+            component={ForgotPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ResetPassword"
+            component={ResetPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="VerifyCode"
+            component={VerifyCode}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ResetSuccess"
+            component={ResetSuccess}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="BottomNav"
             component={BottomNav}
             options={{
+              
               headerTitle: () => <SettingsButton />,
               headerRight: () => <ProfileButton />,
+              headerLeft: () => null,
               headerStyle: {
-                backgroundColor: 'white',
+                backgroundColor: "white",
               },
             }}
-            
           />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Settings" component={Settings} />
-          </>
-          ) : (
-              <>
-            <Stack.Screen name="Login" component={Login}  options={{headerShown: false}}/>
-            <Stack.Screen name="Signup" component={Signup}  options={{headerShown: false}}/>
-            <Stack.Screen name="VerifyEmail" component={VerifyEmail} options={{headerShown: false}}/>
-            <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown: false}}/>
-            <Stack.Screen name="ResetPassword" component={ResetPassword} options={{headerShown: false}}/>
-            <Stack.Screen name="VerifyCode" component={VerifyCode} options={{headerShown: false}}/>
-            <Stack.Screen name="ResetSuccess" component={ResetSuccess} options={{headerShown: false}}/>
-            </>
-          )}
           
-        </Stack.Navigator>
-    
-      </>
-    );
-  };
-  
-  export default StackNavigator;
+        </>
+      </Stack.Navigator>
+    </>
+  );
+};
+
+export default StackNavigator;

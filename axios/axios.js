@@ -21,8 +21,7 @@ export const postUserLogin = (data) => {
   instance.post("/userlogin/post", {
     password: data.data.password,
     email: data.data.email,
-  }).then(console.log('test'));
-
+  });
 };
 
 export const postListing = (data) => {
@@ -33,5 +32,7 @@ export const postListing = (data) => {
     description: data.data.description,
     img: Buffer(data.data.pic, "base64"),
   });
+  console.log(data.data.smoking)
+  console.log(data.data.pets)
 };
 // availability: data.data.availability, poster: data.data.poster

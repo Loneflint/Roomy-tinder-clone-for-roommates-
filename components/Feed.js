@@ -10,7 +10,9 @@ import {
   Alert,
   Image,
   TouchableOpacity,
+  Flatlist,
 } from "react-native";
+import ListingMap from "./ListingMap";
 
 const Feed = () => {
   const [bottomActions, setBottomActions] = React.useState(null);
@@ -27,8 +29,7 @@ const Feed = () => {
         )}
       >
         <View>
-{/* flatlist */}
-
+          <ListingMap />
         </View>
 
         <View
@@ -87,7 +88,6 @@ const Feed = () => {
                 width: 80,
                 height: 80,
                 borderRadius: 40 / 2,
-                
               }}
             />
           </TouchableOpacity>
